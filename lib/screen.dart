@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Screen extends StatelessWidget {
-  const Screen({super.key});
+  const Screen(this.changestate, {super.key});
+
+  final void Function() changestate;
   final String imageface = 'assets/images/quiz-logo.png';
+
   @override
   Widget build(context) {
     return Center(
@@ -16,15 +19,17 @@ class Screen extends StatelessWidget {
             child: Image.asset(
               imageface,
               width: 350,
-              color: const  Color.fromARGB(147, 255, 255, 255),
-              height: 350, 
+              color: const Color.fromARGB(147, 255, 255, 255),
+              height: 350,
             ),
           ),
           SizedBox(
             height: .17 * MediaQuery.of(context).size.height,
           ),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: () {
+              changestate();
+            },
             style: OutlinedButton.styleFrom(
               foregroundColor: const Color.fromARGB(255, 189, 188, 188),
               //backgroundColor: Color.fromARGB(255, 125, 83, 180),
