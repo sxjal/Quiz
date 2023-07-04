@@ -17,7 +17,7 @@ class Screen extends StatelessWidget {
               imageface,
               width: 350,
               color: const  Color.fromARGB(147, 255, 255, 255),
-              height: 350,
+              height: 350, 
             ),
           ),
           SizedBox(
