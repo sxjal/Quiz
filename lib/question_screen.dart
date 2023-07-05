@@ -33,33 +33,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
           const SizedBox(
             height: 30,
           ),
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //answer 1
               AnswerButton(
                   buttontext: currentquestion.answers[0], onTap: () {}),
-              //answer 2const SizedBox(
-              const SizedBox(
-                width: 20,
-              ),
+
               AnswerButton(
                   buttontext: currentquestion.answers[1], onTap: () {}),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
               //answer 3
               AnswerButton(
                   buttontext: currentquestion.answers[2], onTap: () {}),
               //answer 4
-              const SizedBox(
-                width: 20,
-              ),
               AnswerButton(
                   buttontext: currentquestion.answers[3], onTap: () {}),
             ],
