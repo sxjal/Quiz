@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/buttonstyle.dart';
-import 'package:quizapp/model/quiz_question.dart';
+import 'package:quizapp/data/questions.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -12,17 +12,20 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
+  final currentquestion = questions[0];
+
   @override
   Widget build(context) {
     return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        //padding : const EdgeInsets.all(20),
         children: [
-          const Text(
-            "sajal",
-            style: TextStyle(
-              fontSize: 22,
+          Text(
+            currentquestion.text,
+            style: const TextStyle(
+              fontSize: 16,
               color: Color.fromARGB(255, 194, 188, 188),
               fontWeight: FontWeight.bold,
             ),
@@ -34,12 +37,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //answer 1
-              AnswerButton(buttontext: "Answer 1", onTap: () {}),
+              AnswerButton(
+                  buttontext: currentquestion.answers[0], onTap: () {}),
               //answer 2const SizedBox(
               const SizedBox(
                 width: 20,
               ),
-              AnswerButton(buttontext: "Answer 2", onTap: () {}),
+              AnswerButton(
+                  buttontext: currentquestion.answers[1], onTap: () {}),
             ],
           ),
           const SizedBox(
@@ -49,12 +54,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //answer 3
-              AnswerButton(buttontext: "Answer 3", onTap: () {}),
+              AnswerButton(
+                  buttontext: currentquestion.answers[2], onTap: () {}),
               //answer 4
               const SizedBox(
                 width: 20,
               ),
-              AnswerButton(buttontext: "Answer 4", onTap: () {}),
+              AnswerButton(
+                  buttontext: currentquestion.answers[3], onTap: () {}),
             ],
           ),
         ],

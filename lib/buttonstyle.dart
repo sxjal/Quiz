@@ -19,7 +19,7 @@ class AnswerButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 115, 67, 226),
         //foregroundColor: Colors.red,
-        minimumSize: const Size(150, 50),
+        //maximumSize: const Size(150, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(2),
         ),
@@ -27,7 +27,7 @@ class AnswerButton extends StatelessWidget {
       child: Text(
         buttontext,
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 14,
           color: Color.fromARGB(255, 255, 255, 255),
           fontWeight: FontWeight.bold,
         ),
