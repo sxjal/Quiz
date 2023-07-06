@@ -1,6 +1,7 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '';
+
 class ResultScreen extends StatefulWidget {
   const ResultScreen({super.key, required this.usersanswers});
   final List<String> usersanswers;
