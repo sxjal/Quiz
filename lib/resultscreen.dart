@@ -1,17 +1,25 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quizapp/data/questions.dart';
 
-class ResultScreen extends StatefulWidget {
+class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.usersanswers});
   final List<String> usersanswers;
-  @override
-  State<StatefulWidget> createState() {
-    return _ResultScreenState();
-  }
-}
 
-class _ResultScreenState extends State<ResultScreen> {
+  List<Map<String, Object>> getsummarydata() {
+    List<Map<String, Object>> data = [];
+    for (int i = 0; i < usersanswers.length; i++) {
+      data.add({
+        'question_index': i,
+        'question': questions[i].text,
+        'correct_answer': questions[i].answers[0],
+        'answered_answer': usersanswers[i]
+      });
+    }
+    return data;
+  }
+
   @override
   Widget build(context) {
     return SizedBox(
