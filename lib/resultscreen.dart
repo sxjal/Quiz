@@ -30,9 +30,9 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // const SizedBox(
-            //   height: 2,
-            // ),
+            const SizedBox(
+              height: 2,
+            ),
             Text(
               "Result",
               style: GoogleFonts.poppins(
@@ -41,7 +41,13 @@ class ResultScreen extends StatelessWidget {
                 color: Colors.white70,
               ),
             ),
-            //QuestionSummary(getsummarydata()),
+            const SizedBox(
+              height: 30,
+            ),
+            QuestionSummary(getsummarydata()),
+            const SizedBox(
+              height: 30,
+            ),
             OutlinedButton.icon(
               onPressed: () {
                 //changestate();
