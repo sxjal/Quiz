@@ -22,47 +22,49 @@ class ResultScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      //height: double.infinity,
-      child: Column(
-        //mainAxisSize: MainAxisSize.min,
-        children: [
-          // const SizedBox(
-          //   height: 2,
-          // ),
-          Text(
-            "Result",
-            style: GoogleFonts.poppins(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.white70,
-            ),
-          ),
-          QuestionSummary(getsummarydata()),
-          OutlinedButton.icon(
-            onPressed: () {
-              //changestate();
-            },
-            style: OutlinedButton.styleFrom(
-              foregroundColor: const Color.fromARGB(255, 189, 188, 188),
-              //backgroundColor: Color.fromARGB(255, 125, 83, 180),
-            ),
-            icon: const Icon(
-              Icons.restart_alt_sharp,
-              color: Color.fromARGB(255, 189, 188, 188),
-            ),
-            label: const Text(
-              'Restart Quiz',
-              style: TextStyle(
+      child: Container(
+        margin: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // const SizedBox(
+            //   height: 2,
+            // ),
+            Text(
+              "Result",
+              style: GoogleFonts.poppins(
                 fontSize: 18,
-                color: Color.fromARGB(255, 189, 188, 188),
                 fontWeight: FontWeight.bold,
+                color: Colors.white70,
               ),
             ),
-          ),
-        ],
+            //QuestionSummary(getsummarydata()),
+            OutlinedButton.icon(
+              onPressed: () {
+                //changestate();
+              },
+              style: OutlinedButton.styleFrom(
+                foregroundColor: const Color.fromARGB(255, 189, 188, 188),
+                //backgroundColor: Color.fromARGB(255, 125, 83, 180),
+              ),
+              icon: const Icon(
+                Icons.restart_alt_sharp,
+                color: Color.fromARGB(255, 189, 188, 188),
+              ),
+              label: const Text(
+                'Restart Quiz',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Color.fromARGB(255, 189, 188, 188),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
