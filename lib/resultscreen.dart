@@ -9,8 +9,10 @@ class ResultScreen extends StatelessWidget {
   final List<String> usersanswers;
 
   List<Map<String, Object>> getsummarydata() {
+    
     List<Map<String, Object>> data = [];
-    for (int i = 0; i < usersanswers.length; i++) {
+
+    for (var i = 0; i < usersanswers.length; i++) {
       data.add({
         'question_index': i,
         'question': questions[i].text,
@@ -30,16 +32,14 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 2,
-            ),
-            Text(
+             
+            const Text(
               "Result",
-              style: GoogleFonts.poppins(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white70,
-              ),
+              // style: GoogleFonts.poppins(
+              //   fontSize: 18,
+              //   fontWeight: FontWeight.bold,
+              //   color: Colors.white70,
+              // ),
             ),
             const SizedBox(
               height: 30,
