@@ -25,11 +25,13 @@ class ResultScreen extends StatelessWidget {
   Widget build(context) {
     return SizedBox(
       width: double.infinity,
+      //height: double.infinity,
       child: ListView(
+        //mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(
-            height: 2,
-          ),
+          // const SizedBox(
+          //   height: 2,
+          // ),
           Text(
             "Result",
             style: GoogleFonts.poppins(
