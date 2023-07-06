@@ -18,11 +18,25 @@ class QuestionSummary extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //Text(((data['question_index'] as int) + 1).toString()),
-                  Text(
-                    ((data['question_index'] as int) + 1).toString(),
-                    style: GoogleFonts.poppins(
-                      color: Colors.white70,
-                      fontWeight: FontWeight.w400,
+                  Container(
+                    height: 25,
+                    width: 25,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      //border: BorderRadius.all(width : 20),
+                      shape: BoxShape.circle,
+
+                      color: data['answered_answer'] == data['correct_answer']
+                          ? const Color(0xFF06E7C1)
+                          : const Color(0xFFE643BB),
+                    ),
+                    child: Text(
+                      ((data['question_index'] as int) + 1).toString(),
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.poppins(
+                        color: const Color.fromARGB(179, 0, 0, 0),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -46,17 +60,14 @@ class QuestionSummary extends StatelessWidget {
                         Text(
                           data['correct_answer'] as String,
                           style: GoogleFonts.poppins(
-                            color: const Color.fromARGB(255, 1, 255, 217),
+                            color: const Color(0xFFE643BB),
                             fontWeight: FontWeight.w400,
                           ),
                         ),
                         Text(
                           data['answered_answer'] as String,
                           style: GoogleFonts.poppins(
-                            color: data['answered_answer'] ==
-                                    data['correct_answer']
-                                ? const Color.fromARGB(255, 203, 217, 12)
-                                : const Color.fromARGB(255, 111, 229, 0),
+                            color: const Color(0xFF06E7C1),
                             fontWeight: FontWeight.w400,
                           ),
                         ),

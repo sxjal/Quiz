@@ -53,7 +53,7 @@ class ResultScreen extends StatelessWidget {
                 ],
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.white70,
+                color: const Color.fromARGB(255, 255, 255, 255),
               ),
             ),
             const SizedBox(
