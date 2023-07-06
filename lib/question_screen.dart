@@ -49,8 +49,9 @@ class _QuestionScreenState extends State<QuestionScreen> {
               height: 30,
             ),
             //generating buttons dynamically using the list and spread operator.
-            ...currentquestion.shuffledlist().map((value) {
-              return AnswerButton(
+            ...currentquestion.shuffledlist().map(
+              (value) {
+                return AnswerButton(
                   buttontext: value,
                   onTap: () {
                     changequestion();
@@ -58,11 +59,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
                     if (usersanswers[currentquestionindex - 1] ==
                         currentquestion.answers[0]) {
                       score += 1;
-
-                      
                     }
-                  });
-            }),
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),

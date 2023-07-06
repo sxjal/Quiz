@@ -18,6 +18,7 @@ class AnswerButton extends StatelessWidget {
       },
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color.fromARGB(255, 115, 67, 226),
+        padding: const EdgeInsets.all(10),
         //foregroundColor: Colors.red,
         //maximumSize: const Size(150, 50),
         shape: RoundedRectangleBorder(
@@ -31,7 +32,7 @@ class AnswerButton extends StatelessWidget {
           color: Color.fromARGB(255, 255, 255, 255),
           fontWeight: FontWeight.bold,
         ),
-        textAlign: TextAlign.right,
+        textAlign: TextAlign.center ,
       ),
     );
   }
