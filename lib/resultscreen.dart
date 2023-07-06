@@ -25,7 +25,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(context) {
     return SizedBox(
       width: double.infinity,
-      child: Column(
+      child: ListView(
         children: [
           const SizedBox(
             height: 2,

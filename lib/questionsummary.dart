@@ -10,6 +10,7 @@ class QuestionSummary extends StatelessWidget {
     return Column(
       children: data.map(
         (e) {
+          
           return Row(
             children: [
               Text(
