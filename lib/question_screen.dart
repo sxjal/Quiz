@@ -12,7 +12,17 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  final currentquestion = questions[0];
+  var currentquestionindex = 0;
+  var currentquestion = questions[0];
+  List<String> usersanswers = [];
+  int score = 0;
+
+  void changequestion() {
+    currentquestionindex += 1;
+    setState(() {
+      currentquestion = questions[currentquestionindex];
+    });
+  }
 
   @override
   Widget build(context) {
@@ -40,7 +50,18 @@ class _QuestionScreenState extends State<QuestionScreen> {
             ),
             //generating buttons dynamically using the list and spread operator.
             ...currentquestion.shuffledlist().map((value) {
-              return AnswerButton(buttontext: value, onTap: () {});
+              return AnswerButton(
+                  buttontext: value,
+                  onTap: () {
+                    changequestion();
+                    usersanswers.add(value);
+                    if (usersanswers[currentquestionindex - 1] ==
+                        currentquestion.answers[0]) {
+                      score += 1;
+
+                      print("score");
+                    }
+                  });
             }),
           ],
         ),
