@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/questionsummary.dart';
+import 'package:quizapp/quiz.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.usersanswers});
+  const ResultScreen(this.restart, {super.key, required this.usersanswers});
   final List<String> usersanswers;
-
+  final void Function() restart;
   List<Map<String, Object>> getsummarydata() {
-    
     List<Map<String, Object>> data = [];
 
     for (var i = 0; i < usersanswers.length; i++) {
@@ -25,6 +25,11 @@ class ResultScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final totalquestions = questions.length;
+    final summaryvariables = getsummarydata();
+    final correctanswers = summaryvariables.where((data) {
+      return data['correct_answer'] == data['answered_answer'];
+    }).length;
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -32,14 +37,13 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-             
-            const Text(
-              "Result",
-              // style: GoogleFonts.poppins(
-              //   fontSize: 18,
-              //   fontWeight: FontWeight.bold,
-              //   color: Colors.white70,
-              // ),
+            Text(
+              "You have answered $correctanswers out of $totalquestions questions correctly",
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.white70,
+              ),
             ),
             const SizedBox(
               height: 30,
@@ -51,6 +55,7 @@ class ResultScreen extends StatelessWidget {
             OutlinedButton.icon(
               onPressed: () {
                 //changestate();
+                restart();
               },
               style: OutlinedButton.styleFrom(
                 foregroundColor: const Color.fromARGB(255, 189, 188, 188),

@@ -19,7 +19,7 @@ class _QuizState extends State<Quiz> {
   final List<String> usersanswers = [];
   // int score = 0;
   /*
-  If I may not wanna use this thing I cal also use this thing
+  If I may not wanna use this thing I can also use this thing
   var activescreen = 'mainscreen';
 
   void changestate() {
@@ -38,9 +38,16 @@ class _QuizState extends State<Quiz> {
     usersanswers.add(value);
     if (usersanswers.length == questions.length) {
       setState(() {
-        activescreen = ResultScreen(usersanswers: usersanswers);
+        activescreen = ResultScreen(restart, usersanswers: usersanswers);
       });
     }
+  }
+
+  void restart() {
+    setState(() {
+      usersanswers.clear();
+      activescreen = Screen(changestate);
+    });
   }
 
   void changestate() {
@@ -50,7 +57,7 @@ class _QuizState extends State<Quiz> {
   }
 
   @override
-  Widget build(context) { 
+  Widget build(context) {
     //we could even  add this thing here
     /*
     final currentscreen = activescreen == Screen(changestate) 
