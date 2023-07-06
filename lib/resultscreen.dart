@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/data/questions.dart';
 import 'package:quizapp/questionsummary.dart';
-import 'package:quizapp/quiz.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen(this.restart, {super.key, required this.usersanswers});
@@ -40,6 +39,18 @@ class ResultScreen extends StatelessWidget {
             Text(
               "You have answered $correctanswers out of $totalquestions questions correctly",
               style: GoogleFonts.poppins(
+                shadows: const <Shadow>[
+                  Shadow(
+                    offset: Offset(5.0, 5.0),
+                    blurRadius: 10.0,
+                    color: Color.fromARGB(131, 35, 35, 35),
+                  ),
+                  // Shadow(
+                  //   offset: Offset(10.0, 10.0),
+                  //   blurRadius: 8.0,
+                  //   color: Color.fromARGB(125, 0, 0, 255),
+                  // ),
+                ],
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 color: Colors.white70,
