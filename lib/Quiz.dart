@@ -36,22 +36,21 @@ class _QuizState extends State<Quiz> {
 
   void adduseranswer(String value) {
     usersanswers.add(value);
-  }
-
-  void changestate() {
     if (usersanswers.length == questions.length) {
       setState(() {
         activescreen = ResultScreen(usersanswers: usersanswers);
       });
-    } else {
-      setState(() {
-        activescreen = QuestionScreen(onSelectAnswer: adduseranswer);
-      });
     }
   }
 
+  void changestate() {
+    setState(() {
+      activescreen = QuestionScreen(onSelectAnswer: adduseranswer);
+    });
+  }
+
   @override
-  Widget build(context) {
+  Widget build(context) { 
     //we could even  add this thing here
     /*
     final currentscreen = activescreen == Screen(changestate) 
