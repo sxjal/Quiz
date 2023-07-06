@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:quizapp/buttonstyle.dart';
 import 'package:quizapp/data/questions.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({super.key, required this.onSelectAnswer});
+  final void Function(String selectedAnswer) onSelectAnswer;
 
   @override
   State<QuestionScreen> createState() {
@@ -14,10 +16,12 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   var currentquestionindex = 0;
   var currentquestion = questions[0];
-  List<String> usersanswers = [];
+
   int score = 0;
 
-  void changequestion() {
+  void changequestion(String answer) {
+    widget.onSelectAnswer(answer);
+
     currentquestionindex += 1;
     setState(() {
       currentquestion = questions[currentquestionindex];
@@ -38,9 +42,14 @@ class _QuestionScreenState extends State<QuestionScreen> {
           children: [
             Text(
               currentquestion.text,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Color.fromARGB(255, 234, 226, 226),
+              // style: const TextStyle(
+              //   fontSize: 14,
+              //   color: Color.fromARGB(255, 234, 226, 226),
+              //   fontWeight: FontWeight.bold,
+              //   fontFamily:
+              style: GoogleFonts.poppins(
+                fontSize: 18,
+                color: Colors.amber,
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
@@ -54,12 +63,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                 return AnswerButton(
                   buttontext: value,
                   onTap: () {
-                    changequestion();
-                    usersanswers.add(value);
-                    if (usersanswers[currentquestionindex - 1] ==
-                        currentquestion.answers[0]) {
-                      score += 1;
-                    }
+                    changequestion(value);
                   },
                 );
               },

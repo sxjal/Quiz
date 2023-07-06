@@ -14,7 +14,8 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   late Widget activescreen;
-
+  final List<String> usersanswers = [];
+  // int score = 0;
   /*
   If I may not wanna use this thing I cal also use this thing
   var activescreen = 'mainscreen';
@@ -31,9 +32,13 @@ class _QuizState extends State<Quiz> {
     super.initState();
   }
 
+  void adduseranswer(String value) {
+    usersanswers.add(value);
+  }
+
   void changestate() {
     setState(() {
-      activescreen = const QuestionScreen();
+      activescreen = QuestionScreen(onSelectAnswer: adduseranswer);
     });
   }
 
