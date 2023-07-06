@@ -59,7 +59,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                         currentquestion.answers[0]) {
                       score += 1;
 
-                      print("score");
+                      
                     }
                   });
             }),

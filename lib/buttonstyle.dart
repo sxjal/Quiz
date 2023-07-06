@@ -31,6 +31,7 @@ class AnswerButton extends StatelessWidget {
           color: Color.fromARGB(255, 255, 255, 255),
           fontWeight: FontWeight.bold,
         ),
+        textAlign: TextAlign.right,
       ),
     );
   }
