@@ -33,23 +33,10 @@ class _QuestionScreenState extends State<QuestionScreen> {
           const SizedBox(
             height: 30,
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //answer 1
-              AnswerButton(
-                  buttontext: currentquestion.answers[0], onTap: () {}),
-
-              AnswerButton(
-                  buttontext: currentquestion.answers[1], onTap: () {}),
-              //answer 3
-              AnswerButton(
-                  buttontext: currentquestion.answers[2], onTap: () {}),
-              //answer 4
-              AnswerButton(
-                  buttontext: currentquestion.answers[3], onTap: () {}),
-            ],
-          ),
+          //generating buttons dynamically using the list and spread operator.
+          ...currentquestion.answers.map((value) {
+            return AnswerButton(buttontext: value, onTap: () {});
+          }),
         ],
       ),
     );
