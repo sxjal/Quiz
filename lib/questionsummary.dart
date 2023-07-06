@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionSummary extends StatelessWidget {
-  const QuestionSummary({super.key,required this.data});
+  const QuestionSummary(this.data, {super.key});
   final List<Map<String, Object>> data;
 
   @override
@@ -11,15 +11,11 @@ class QuestionSummary extends StatelessWidget {
       children: data.map(
         (e) {
           return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 ((e['question_index'] as int) + 1).toString(),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     e['question'] as String,

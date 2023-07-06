@@ -25,7 +25,7 @@ class ResultScreen extends StatelessWidget {
   Widget build(context) {
     return SizedBox(
       width: double.infinity,
-      child: ListView(
+      child: Column(
         children: [
           const SizedBox(
             height: 2,
@@ -38,7 +38,7 @@ class ResultScreen extends StatelessWidget {
               color: Colors.white70,
             ),
           ),
-          QuestionSummary(data: getsummarydata()),
+          QuestionSummary(getsummarydata()),
           OutlinedButton.icon(
             onPressed: () {
               //changestate();
