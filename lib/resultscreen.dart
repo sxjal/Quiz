@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quizapp/data/questions.dart';
+import 'package:quizapp/questionsummary.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({super.key, required this.usersanswers});
@@ -27,9 +28,10 @@ class ResultScreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(
-            height: 20,
+            height: 2,
           ),
           Text(
             "Result",
@@ -39,6 +41,7 @@ class ResultScreen extends StatelessWidget {
               color: Colors.white70,
             ),
           ),
+          QuestionSummary(data: getsummarydata()),
           OutlinedButton.icon(
             onPressed: () {
               //changestate();
