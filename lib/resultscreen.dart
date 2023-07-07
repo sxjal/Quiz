@@ -8,6 +8,13 @@ class ResultScreen extends StatelessWidget {
   const ResultScreen(this.restart, {super.key, required this.usersanswers});
   final List<String> usersanswers;
   final void Function() restart;
+
+  //just a way of calling functions with no parameters
+  //List<Map<String, Object>> get summarydata {}
+
+  //we can call this function as a variable
+  //List<Map<String, Object>> somedata = summarydata;
+
   List<Map<String, Object>> getsummarydata() {
     List<Map<String, Object>> data = [];
 
@@ -26,9 +33,15 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final totalquestions = questions.length;
     final summaryvariables = getsummarydata();
-    final correctanswers = summaryvariables.where((data) {
-      return data['correct_answer'] == data['answered_answer'];
-    }).length;
+    //final correctanswers = summaryvariables.where((data) {
+    //return data['correct_answer'] == data['answered_answer'];
+    //}).length;
+    //another way of doing this thing using arrow functions
+
+    final correctanswers = summaryvariables
+        .where((data) => data['correct_answer'] == data['answered_answer'])
+        .length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
